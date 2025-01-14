@@ -1,0 +1,37 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/tb
+vconv_block
+DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+!s110 1736723181
+!i10b 1
+!s100 HmDdoda[VhT@a:cDTGeCV3
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+I0OAzROR[D6Z=l8]PP[ddK3
+VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1736722947
+8/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/src/conv_block.sv
+F/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/src/conv_block.sv
+!i122 0
+L0 1 57
+OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1736723181.000000
+!s107 /home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/src/conv_block.sv|
+!s90 -work|work|+define+COCOTB_SIM|-sv|-timescale|1ns/1ps|-mfcu|+acc|/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/src/conv_block.sv|
+!i113 1
+o-work work -sv -timescale 1ns/1ps -mfcu +acc
+!s92 -work work +define+COCOTB_SIM -sv -timescale 1ns/1ps -mfcu +acc
+tCvgOpt 0

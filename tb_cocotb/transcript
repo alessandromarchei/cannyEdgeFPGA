@@ -1,0 +1,53 @@
+# do sim_build/runsim.do
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap -c 
+# ** Warning: vmap will not overwrite local modelsim.ini.
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work sim_build/work 
+# Modifying modelsim.ini
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 00:06:21 on Jan 13,2025
+# vlog -work work "+define+COCOTB_SIM" -sv -timescale 1ns/1ps -mfcu "+acc" /home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/src/conv_block.sv 
+# -- Compiling module conv_block
+# 
+# Top level modules:
+# 	conv_block
+# End time: 00:06:21 on Jan 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -onfinish exit -pli "/home/alessandro/miniconda3/envs/py3_32/lib/python3.7/site-packages/cocotb/libs/libcocotbvpi_modelsim.so" work.conv_block 
+# Start time: 00:06:21 on Jan 13,2025
+# Loading sv_std.std
+# Loading work.conv_block
+# Loading /home/alessandro/miniconda3/envs/py3_32/lib/python3.7/site-packages/cocotb/libs/libcocotbvpi_modelsim.so
+#      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:79   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+#      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+#      0.00ns INFO     cocotb                             Running on ModelSim - INTEL FPGA STARTER EDITION version 2020.1 2020.02
+#      0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /home/alessandro/miniconda3/envs/py3_32/lib/python3.7/site-packages/cocotb
+#      0.00ns INFO     cocotb                             Seeding Python random module with 1736723182
+#      0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+#      0.00ns INFO     cocotb.regression                  Found test tb_conv.tb_conv
+#      0.00ns INFO     cocotb.regression                  running tb_conv (1/1)
+#                                                           Test convolution block.
+#      0.00ns INFO     cocotb.regression                  tb_conv failed
+#                                                         Traceback (most recent call last):
+#                                                           File "/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/tb/tb_conv.py", line 24, in tb_conv
+#                                                             dut.i_data.value = 0
+#                                                           File "/home/alessandro/miniconda3/envs/py3_32/lib/python3.7/site-packages/cocotb/handle.py", line 201, in __setattr__
+#                                                             return object.__setattr__(self, name, value)
+#                                                           File "/home/alessandro/miniconda3/envs/py3_32/lib/python3.7/site-packages/cocotb/handle.py", line 489, in value
+#                                                             self._set_value(value, cocotb.scheduler._schedule_write)
+#                                                           File "/home/alessandro/miniconda3/envs/py3_32/lib/python3.7/site-packages/cocotb/handle.py", line 695, in _set_value
+#                                                             self._name, type(self)
+#                                                         TypeError: Assigning non-list value to object i_data of type <class 'cocotb.handle.NonHierarchyIndexableObject'>
+#      0.00ns INFO     cocotb.regression                  **************************************************************************************
+#                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+#                                                         **************************************************************************************
+#                                                         ** tb_conv.tb_conv                FAIL           0.00           0.00          1.12  **
+#                                                         **************************************************************************************
+#                                                         ** TESTS=1 PASS=0 FAIL=1 SKIP=0                  0.00           0.01          0.09  **
+#                                                         **************************************************************************************
+#                                                         
+# ** Note: $finish
+#    Time: 1 ps  Iteration: 0  Instance: /conv_block
+# End time: 00:06:22 on Jan 13,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
