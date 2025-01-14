@@ -33,7 +33,7 @@ generate
 endgenerate
 
 
-wire [NBIT + 1 + FRAC_BITS -1:0] flattened_out_mul_extended [KERNEL_SIZE*KERNEL_SIZE-1:0];
+wire [(NBIT + 1 + FRAC_BITS)-1:0] flattened_out_mul_extended [KERNEL_SIZE*KERNEL_SIZE-1:0];
 
 // Flattening the out_mul matrix of the multiplier results
 generate
@@ -44,11 +44,11 @@ generate
     end
 endgenerate
 
-wire [NBIT + FRAC_BITS+$clog2(KERNEL_SIZE*KERNEL_SIZE)-1:0] sum_extended;
+wire [(NBIT + FRAC_BITS + 1 +$clog2(KERNEL_SIZE*KERNEL_SIZE))-1:0] sum_extended;
 
 // Instantiate the reduction tree module
 reduction_tree #(
-    .NBIT(NBIT + FRAC_BITS),   // Parallelism is doubled since we are adding up multiplier outputs
+    .NBIT(NBIT + FRAC_BITS + 1),   // Parallelism is doubled since we are adding up multiplier outputs
     .NUM_ADDENDS(KERNEL_SIZE*KERNEL_SIZE)
 ) tree_adder(
     .data_in(flattened_out_mul_extended),

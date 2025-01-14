@@ -3,4 +3,4 @@
 
 //tb params
 `define NUM_TESTS 100
-`define FRAC_BITS 10
+`define FRAC_BITS 5

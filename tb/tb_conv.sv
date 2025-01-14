@@ -74,7 +74,7 @@ module tb_conv();
             for (i = 0; i < `KERNEL_SIZE; i = i + 1) begin
                 for (j = 0; j < `KERNEL_SIZE; j = j + 1) begin
                     //i_data[i][j] = $urandom_range(0, (1 << `NBIT) - 1);
-                    i_data[i][j] = $urandom_range(1, 9);
+                    i_data[i][j] = $urandom_range(1, 5);
                 end
             end
         end

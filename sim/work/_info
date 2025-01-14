@@ -8,18 +8,18 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/sim
+Z0 d/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/sim
 vconv_block
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1736810515
+Z2 !s110 1736846722
 !i10b 1
-!s100 =nT5zeDK4Y8X2OVKoigJ_1
+!s100 ;5kz^zA_FjnhEWoH_502g2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Ii6Zo^@2NhG:`Em58gOIin2
+IleNmK;Ob]eO0fMWdDjRE90
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1736810045
+w1736841466
 8../src/conv_block.sv
 F../src/conv_block.sv
 !i122 2
@@ -28,7 +28,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1736810515.000000
+Z6 !s108 1736846722.000000
 !s107 ../src/params.sv|../src/conv_block.sv|
 !s90 -reportprogress|300|-work|work|../src/conv_block.sv|
 !i113 1
@@ -53,7 +53,7 @@ R5
 r1
 !s85 0
 31
-Z9 !s108 1736810514.000000
+R6
 !s107 ../src/lineBuffer.sv|
 !s90 -reportprogress|300|-work|work|../src/lineBuffer.sv|
 !i113 1
@@ -62,24 +62,24 @@ R8
 nline@buffer
 vreduction_tree
 R1
-!s110 1736810514
+!s110 1736846721
 !i10b 1
-!s100 gL:VYe7dk;VG5c8<:IhP;1
+!s100 >mN[5QGlB5k`YJe;e8B4k2
 R3
-IPeeIM7l0DdXLD:k>66:Ca1
+Ig;J63Z5ALIPK=Jf>Kd`lB1
 R4
 S1
 R0
-w1736810484
+w1736846717
 8../src/reduction_tree.sv
 F../src/reduction_tree.sv
 !i122 0
-L0 1 38
+L0 1 39
 R5
 r1
 !s85 0
 31
-R9
+!s108 1736846721.000000
 !s107 ../src/reduction_tree.sv|
 !s90 -reportprogress|300|-work|work|../src/reduction_tree.sv|
 !i113 1
@@ -89,13 +89,13 @@ vtb_conv
 R1
 R2
 !i10b 1
-!s100 PT_SE7=@QRfUO:5;z?om?0
+!s100 QJT9DX9OkF@CPzL^YMibg2
 R3
-IFd>PnKj0208TIRLdS_1;o0
+Ik>l4[5F_;SkU]]f34?HNJ0
 R4
 S1
 R0
-w1736810107
+w1736841506
 8../tb/tb_conv.sv
 F../tb/tb_conv.sv
 !i122 3

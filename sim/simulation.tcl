@@ -52,10 +52,11 @@ add wave sim:/tb_conv/uut/i_kernel_valid
 add wave -color green -radix unsigned sim:/tb_conv/uut/o_pixel
 add wave -color yellow -radix unsigned sim:/tb_conv/uut/out_mul_extended
 add wave -radix unsigned -radix unsigned sim:/tb_conv/uut/tree_adder/data_in
+add wave -color purple -radix unsigned sim:/tb_conv/uut/tree_adder/sums 
 add wave -radix unsigned -color blue sim:/tb_conv/uut/sum_extended
 add wave -color orange -radix unsigned sim:/tb_conv/uut/flattened_out_mul_extended 
 
-set runTime 220ns
+set runTime 20ns
 
 # Run simulation
 run $runTime
