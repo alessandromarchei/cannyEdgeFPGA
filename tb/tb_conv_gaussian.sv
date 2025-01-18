@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 `include "../src/params.sv"
 
-module tb_conv();
+module tb_conv_gaussian();
     
     // Clock and signals
     reg i_clk;
@@ -12,7 +12,7 @@ module tb_conv();
     wire [`NBIT*`NBIT+$clog2(`KERNEL_SIZE*`KERNEL_SIZE)-1:0] o_pixel;
 
     // Instantiate the DUT
-    conv_block #(
+    conv_block_gaussian #(
         .NBIT(`NBIT),
         .KERNEL_SIZE(`KERNEL_SIZE),
         .FRAC_BITS(`FRAC_BITS)
@@ -73,8 +73,7 @@ module tb_conv();
         begin
             for (i = 0; i < `KERNEL_SIZE; i = i + 1) begin
                 for (j = 0; j < `KERNEL_SIZE; j = j + 1) begin
-                    //i_data[i][j] = $urandom_range(0, (1 << `NBIT) - 1);
-                    i_data[i][j] = $urandom_range(1, 5);
+                    i_data[i][j] = $urandom_range(0, (1 << `NBIT) - 1);
                 end
             end
         end
@@ -87,7 +86,7 @@ module tb_conv();
         i_kernel_valid = 0;
 
         // Load kernel weights from file and convert them to fixed-point
-        load_kernel_from_file("kernel_config.txt");
+        load_kernel_from_file("kernel_gaussian.txt");
 
         // Apply kernel to DUT
         i_kernel_valid = 1;

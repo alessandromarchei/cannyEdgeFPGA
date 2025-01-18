@@ -1,7 +1,7 @@
 `include "params.sv"
 
 // THIS MODULE IMPLEMENTS THE CONVOLUTIONAL BLOCKS for a GAUSSIAN filter, in FIXED POINT REPRESENTATION
-module conv_block #(
+module conv_block_gaussian #(
     parameter NBIT = 8,          // Define NBIT (bit-width)
     parameter KERNEL_SIZE = 3,   // Define KERNEL_SIZE (size of the kernel)
     parameter FRAC_BITS = 10     // FRACTIONAL BITS FOR THE FIXED POINT REPRESENTATION
