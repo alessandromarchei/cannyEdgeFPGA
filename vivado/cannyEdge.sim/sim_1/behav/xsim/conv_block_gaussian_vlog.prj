@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../../src/params.sv" \
+"../../../../../src/lut_arctang.sv" \
+"../../../../../src/lineBuffer.sv" \
+"../../../../../src/reduction_tree.sv" \
+"../../../../../src/conv_block_gaussian.sv" \
+"../../../../../src/conv_block_sobel.sv" \
+"../../../../../src/sobel_arctan.sv" \
+"../../../../../src/sobel_magnitude.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

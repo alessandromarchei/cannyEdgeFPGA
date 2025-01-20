@@ -2,7 +2,8 @@
 
 module sobel_magnitude #(
     parameter NBIT = 16,          // Bit-width of input pixels
-)(
+)
+(
     input wire i_clk,                                    // Clock signal
     input wire i_data_valid,                             // Valid signal for input data
     input signed [NBIT-1:0] gx,

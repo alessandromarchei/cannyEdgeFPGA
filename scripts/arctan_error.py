@@ -4,7 +4,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
     # Parameters for LUT computation
 DELTA = 0.01  # Step size for ground truth grid
-MAX_VALUE = 10  # Maximum saturation value for both x and y
+MAX_VALUE = 5  # Maximum saturation value for both x and y
 LUT_STEP = 1.0  # Step size for LUT discretization
 
 

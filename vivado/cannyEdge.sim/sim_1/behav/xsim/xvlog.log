@@ -1,0 +1,18 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/params.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/lut_arctang.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module arctan_lut
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/lineBuffer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lineBuffer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/reduction_tree.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reduction_tree
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/conv_block_gaussian.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv_block_gaussian
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/conv_block_sobel.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv_block_sobel
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/sobel_arctan.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module arctan_lut
+ERROR: [VRFC 10-1280] procedural assignment to a non-register angle is not permitted, left-hand side should be reg/integer/time/genvar [/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/sobel_arctan.sv:26]
+ERROR: [VRFC 10-1280] procedural assignment to a non-register angle is not permitted, left-hand side should be reg/integer/time/genvar [/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/sobel_arctan.sv:28]
+ERROR: [VRFC 10-1280] procedural assignment to a non-register angle is not permitted, left-hand side should be reg/integer/time/genvar [/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/sobel_arctan.sv:30]
+ERROR: [VRFC 10-1280] procedural assignment to a non-register angle is not permitted, left-hand side should be reg/integer/time/genvar [/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/sobel_arctan.sv:32]
+ERROR: [VRFC 10-8530] module 'arctan_lut' is ignored due to previous errors [/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/src/sobel_arctan.sv:1]

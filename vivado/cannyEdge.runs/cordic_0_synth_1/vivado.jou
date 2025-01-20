@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Mon Jan 20 14:15:45 2025
+# Process ID         : 108528
+# Current directory  : /home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/vivado/cannyEdge.runs/cordic_0_synth_1
+# Command line       : vivado -log cordic_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cordic_0.tcl
+# Log file           : /home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/vivado/cannyEdge.runs/cordic_0_synth_1/cordic_0.vds
+# Journal file       : /home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/vivado/cannyEdge.runs/cordic_0_synth_1/vivado.jou
+# Running On         : ale
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 22.04.5 LTS
+# Processor Detail   : Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+# CPU Frequency      : 3867.136 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 12422 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 14569 MB
+# Available Virtual  : 6631 MB
+#-----------------------------------------------------------
+source cordic_0.tcl -notrace
