@@ -3,7 +3,7 @@
 module conv_block_sobel #(
     parameter NBIT = 8,          // Bit-width of input pixels
     parameter KERNEL_SIZE = 3,
-    parameter NBIT_SOBEL = 2*NBIT    // Size of the kernel
+    parameter NBIT_SOBEL = $clog2((NBIT+1)*3) + NBIT
 )(
     input wire i_clk,                                    // Clock signal
     input wire [NBIT-1:0] i_data [KERNEL_SIZE-1:0][KERNEL_SIZE-1:0], // Input pixel data
@@ -30,5 +30,10 @@ always @(posedge i_clk) begin
     end
 end
 
+//MAXIMUM AND MINIMUM RANGES
+
+//WORST CASE OVERFLOW = 1021
+//WORST CASE UNDERFLOW = -1021
+//MINIMUM BIT FOR BEST PRECISION = 10 BITS + SIGN = 11
 
 endmodule

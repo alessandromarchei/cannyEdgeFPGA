@@ -58,7 +58,7 @@ def plot_merged_2d(data1, data2, title1, title2, combined_title):
     plt.show()
 
 # Load the grayscale image
-image_path = 'lena.jpeg'  # Correct the file path
+image_path = 'lena.png'  # Correct the file path
 image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 
 if image is None:

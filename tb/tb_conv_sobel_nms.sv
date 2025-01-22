@@ -2,14 +2,17 @@
 `include "../src/params.sv"
 
 
-module tb_conv_sobel();
+module tb_conv_sobel_nms();
 
     // Clock and signals
     reg i_clk;
     reg i_data_valid;
     reg [`NBIT-1:0] i_data [`KERNEL_SIZE-1:0][`KERNEL_SIZE-1:0];
-    wire signed [`NBIT+$clog2(6)-1:0] gx;
-    wire signed [`NBIT+$clog2(6)-1:0] gy;
+    wire signed [$clog2((`NBIT+1)*3) + `NBIT-1:0] gx;
+    wire signed [$clog2((`NBIT+1)*3) + `NBIT-1:0] gy;
+
+    reg [$clog2((`NBIT+1)*3) + `NBIT:0] module_g;
+    reg [1:0] angle_range;
 
     // Instantiate the DUT
     conv_block_sobel #(
@@ -21,6 +24,23 @@ module tb_conv_sobel();
         .i_data_valid(i_data_valid),
         .gx(gx),
         .gy(gy)
+    );
+
+    sobel_arctan uut_atan
+    (
+        .i_clk(i_clk),
+        .gx(gx),   // G_y
+        .gy(gy),   // G_x
+        .angle_range(angle_range) //
+    );
+
+    sobel_magnitude uut_mag
+    (
+        .i_clk(i_clk),                                   // Clock signal
+        .i_data_valid('b1),                             // Valid signal for input data
+        .gx(gx),
+        .gy(gy),
+        .module_g(module_g)
     );
 
     // Clock generation
@@ -52,7 +72,7 @@ module tb_conv_sobel();
             generate_random_pixels();
             i_data_valid = 1;
             @(posedge i_clk);
-            i_data_valid = 0;
+            i_data_valid = 1;
             @(posedge i_clk);  // Wait for one clock cycle
             $display("G : (%d,%d)", gx, gy);
         end

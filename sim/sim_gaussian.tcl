@@ -35,17 +35,6 @@ vlog -work work "$tb_dir/tb_conv_sobel.sv"
 # Load the testbench
 vsim -voptargs="+acc" work.tb_conv_gaussian
 
-# #set all the waves in decimal view
-# add wave -color white sim:/tb_dlx/Clock
-# add wave -color white sim:/tb_dlx/Reset
-# add wave -color yellow -radix decimal sim:/tb_dlx/DRAM_IN
-# add wave -color blue -radix decimal sim:/tb_dlx/DRAM_OUT
-# add wave -color green -radix hex sim:/tb_dlx/DRAM_ADDR
-# add wave -color yellow -radix hex sim:/tb_dlx/IRAM_DATA
-# add wave -color green -radix hex sim:/tb_dlx/IRAM_ADDR
-# add wave -color purple -radix decimal sim:/tb_dlx/DRAM_DATA
-# add wave -color white sim:/tb_dlx/MEM_WR_t
-# add wave -color white sim:/tb_dlx/MEM_RD_t
 
 add wave -color white sim:/tb_conv_gaussian/uut/i_clk
 add wave -color red -radix unsigned sim:/tb_conv_gaussian/uut/i_data
