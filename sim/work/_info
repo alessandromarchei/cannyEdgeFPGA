@@ -9,31 +9,56 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/sim
-vconv_block_sobel
+vconv_block_gaussian
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1737554817
+Z2 !s110 1737804969
+!i10b 1
+!s100 PDb=X1Q;lB_>07UjWJKD@1
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IAX5I3`FhAZf;]dd^=74kI1
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1737719309
+8../src/conv_block_gaussian.sv
+F../src/conv_block_gaussian.sv
+!i122 2
+L0 4 69
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1737804969.000000
+!s107 ../src/params.sv|../src/conv_block_gaussian.sv|
+!s90 -reportprogress|300|-work|work|../src/conv_block_gaussian.sv|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+vconv_block_sobel
+R1
+R2
 !i10b 1
 !s100 2J<2P6<SMh[Li>NnBn@Bf2
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+R3
 I^:mC_7Nh_6FWIB2Z0j0We0
-Z4 VDg1SIo80bB@j0V0VzS_@n1
+R4
 S1
 R0
 w1737464107
 8../src/conv_block_sobel.sv
 F../src/conv_block_sobel.sv
 !i122 1
-Z5 L0 3 37
-Z6 OV;L;2020.1;71
+Z9 L0 3 37
+R5
 r1
 !s85 0
 31
-Z7 !s108 1737554817.000000
+R6
 !s107 ../src/params.sv|../src/conv_block_sobel.sv|
 !s90 -reportprogress|300|-work|work|../src/conv_block_sobel.sv|
 !i113 1
-Z8 o-work work
-Z9 tCvgOpt 0
+R7
+R8
 vlineBuffer
 R1
 R2
@@ -49,17 +74,67 @@ w1736779521
 F../src/lineBuffer.sv
 !i122 0
 L0 1 52
-R6
+R5
 r1
 !s85 0
 31
-R7
+R6
 !s107 ../src/lineBuffer.sv|
 !s90 -reportprogress|300|-work|work|../src/lineBuffer.sv|
 !i113 1
+R7
 R8
-R9
 nline@buffer
+vnms
+R1
+R2
+!i10b 1
+!s100 K4L50W:TKB4W:GfaCn9:;1
+R3
+I3UIIB[c[16nkAdzbkF]DU1
+R4
+S1
+R0
+w1737791845
+8../src/nms.sv
+F../src/nms.sv
+!i122 6
+L0 10 49
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../src/params.sv|../src/nms.sv|
+!s90 -reportprogress|300|-work|work|../src/nms.sv|
+!i113 1
+R7
+R8
+vreduction_tree
+R1
+R2
+!i10b 1
+!s100 >mN[5QGlB5k`YJe;e8B4k2
+R3
+Ig;J63Z5ALIPK=Jf>Kd`lB1
+R4
+S1
+R0
+w1736848236
+8../src/reduction_tree.sv
+F../src/reduction_tree.sv
+!i122 3
+L0 1 39
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../src/reduction_tree.sv|
+!s90 -reportprogress|300|-work|work|../src/reduction_tree.sv|
+!i113 1
+R7
+R8
 vsobel_arctan
 R1
 R2
@@ -73,18 +148,18 @@ R0
 w1737554812
 8../src/sobel_arctan.sv
 F../src/sobel_arctan.sv
-!i122 2
+!i122 4
 L0 1 38
-R6
+R5
 r1
 !s85 0
 31
-R7
+R6
 !s107 ../src/sobel_arctan.sv|
 !s90 -reportprogress|300|-work|work|../src/sobel_arctan.sv|
 !i113 1
+R7
 R8
-R9
 vsobel_magnitude
 R1
 R2
@@ -98,40 +173,40 @@ R0
 w1737554806
 8../src/sobel_magnitude.sv
 F../src/sobel_magnitude.sv
-!i122 3
+!i122 5
+R9
 R5
-R6
 r1
 !s85 0
 31
-R7
+R6
 !s107 ../src/params.sv|../src/sobel_magnitude.sv|
 !s90 -reportprogress|300|-work|work|../src/sobel_magnitude.sv|
 !i113 1
+R7
 R8
-R9
-vtb_conv_sobel_nms
+vtb_nms
 R1
 R2
 !i10b 1
-!s100 4IKzVT1a]Z]^jM5lUz2C^3
+!s100 _>iJaLU0PKU;LWklL`IGF1
 R3
-I=>z4e8;3eiEk6O:>gHCJK1
+I>_:9zC5307T2<BB_^jKNW0
 R4
 S1
 R0
-w1737554743
-8../tb/tb_conv_sobel_nms.sv
-F../tb/tb_conv_sobel_nms.sv
-!i122 4
-L0 5 78
-R6
+w1737804962
+8../tb/tb_nms.sv
+F../tb/tb_nms.sv
+!i122 7
+L0 7 244
+R5
 r1
 !s85 0
 31
-R7
-!s107 ../src/params.sv|../tb/tb_conv_sobel_nms.sv|
-!s90 -reportprogress|300|-work|work|../tb/tb_conv_sobel_nms.sv|
+R6
+!s107 ../src/params.sv|../tb/tb_nms.sv|
+!s90 -reportprogress|300|-work|work|../tb/tb_nms.sv|
 !i113 1
+R7
 R8
-R9

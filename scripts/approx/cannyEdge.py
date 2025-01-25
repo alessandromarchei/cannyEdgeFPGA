@@ -83,13 +83,13 @@ gradient_magnitude = np.uint8((np.sqrt(image_sobel_x**2 + image_sobel_y**2)))
 abs_sobel_x = np.abs(image_sobel_x).astype(np.float32)  # Absolute value of Sobel X
 abs_sobel_y = np.abs(image_sobel_y).astype(np.float32)  # Absolute value of Sobel Y
 gradient_magnitude_approx = np.maximum(abs_sobel_x, abs_sobel_y) + 0.5 * np.minimum(abs_sobel_x, abs_sobel_y)
-
+gradient_magnitude_approx_2 = np.uint8(np.abs(image_sobel_x) + np.abs(image_sobel_y))
 # Convert both matrices to uint8 (clipping values to [0, 255])
 gradient_magnitude = np.uint8(np.clip(gradient_magnitude, 0, 255))
 gradient_magnitude_approx = np.uint8(np.clip(gradient_magnitude_approx, 0, 255))
 cv2.imshow("GRADIENT MAG", gradient_magnitude)
 cv2.imshow("GRADIENT MAG APPROXIMATE", gradient_magnitude_approx)
-
+cv2.imshow("GRADIENT MAG APPROXIMATE 2", gradient_magnitude_approx_2)
 # Now compute the direction of the gradient of the image
 gradient_direction = np.arctan2(image_sobel_y, image_sobel_x)
 # Normalize direction to range [0, 255] for visualization

@@ -9,7 +9,7 @@ module conv_block_gaussian #(
     input i_clk,                                   // Clock signal
     input[NBIT-1:0] i_data [KERNEL_SIZE-1:0][KERNEL_SIZE-1:0],  // Pixels entering the convolution block
     input i_data_valid,                            // Indicating when to perform the MAC
-    input [NBIT-1:0] i_kernel [KERNEL_SIZE-1:0][KERNEL_SIZE-1:0], // Data for the kernel block
+    input [FRAC_BITS-1:0] i_kernel [KERNEL_SIZE-1:0][KERNEL_SIZE-1:0], // Data for the kernel block
     input i_kernel_valid,                          // Indicating the new kernel to load
     output[NBIT+NBIT+$clog2(KERNEL_SIZE*KERNEL_SIZE)-1:0] o_pixel // Computed pixel at the output
 );
@@ -20,7 +20,7 @@ wire unsigned[NBIT + 1 + FRAC_BITS -1:0] out_mul_extended [KERNEL_SIZE-1:0][KERN
 
 
 // Separating the input data into KERNEL_SIZE**2 pixels
-reg [NBIT-1:0] kernel_matrix [KERNEL_SIZE-1:0][KERNEL_SIZE-1:0];
+reg [FRAC_BITS-1:0] kernel_matrix [KERNEL_SIZE-1:0][KERNEL_SIZE-1:0];
 genvar i, j;
 
 // Perform each multiplication in parallel (combinational block)
@@ -63,7 +63,7 @@ always @(posedge i_clk) begin
     if (i_kernel_valid) begin
         for (int i = 0; i < KERNEL_SIZE; i = i + 1) begin
             for (int j = 0; j < KERNEL_SIZE; j = j + 1) begin
-                kernel_matrix[i][j] <= i_kernel[i][j];
+                kernel_matrix[i][j] <= i_kernel[i][j] ;
             end
         end
     end
