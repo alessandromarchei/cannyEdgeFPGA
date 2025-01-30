@@ -1,8 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1736723182" />
-    <testcase classname="tb_conv" file="/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdge/tb/tb_conv.py" lineno="12" name="tb_conv" ratio_time="1.1166943556975506" sim_time_ns="0.001" time="0.0008955001831054688">
-      <failure message="Test failed with RANDOM_SEED=1736723182" />
-    </testcase>
-  </testsuite>
-</testsuites>

@@ -40,8 +40,8 @@ def process_image(input_path, output_path, width, height, file_format="hex"):
     print(f"{file_format.upper()} file written to {output_path}")
 
 # Parameters
-input_image_path = "mars.png"  # Change to your input image path
-output_file_path = "../sim/mars.hex"  # Change to your desired output file path
+input_image_path = "lena.png"  # Change to your input image path
+output_file_path = "../sim/lena.hex"  # Change to your desired output file path
 output_width = 120  # Desired image width
 output_height = 120  # Desired image height
 output_format = "hex"  # Set to 'hex' or 'mem'

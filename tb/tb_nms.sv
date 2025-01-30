@@ -25,7 +25,8 @@ module tb_nms();
     wire signed [10:0] gy[0:IMAGE_HEIGHT-KERNEL_SIZE*2 + 1][0:IMAGE_WIDTH-KERNEL_SIZE*2+1];
     wire [11:0] gradient_magnitude[0:IMAGE_HEIGHT-KERNEL_SIZE*2 + 1][0:IMAGE_WIDTH-KERNEL_SIZE*2+1];
     wire [1:0] gradient_direction[0:IMAGE_HEIGHT-KERNEL_SIZE*2 + 1][0:IMAGE_WIDTH-KERNEL_SIZE*2+1];
-    wire [11:0] nms_output[0:IMAGE_HEIGHT-KERNEL_SIZE*3 + 2][0:IMAGE_WIDTH-KERNEL_SIZE*3 + 2];
+    wire [7:0] nms_output[0:IMAGE_HEIGHT-KERNEL_SIZE*3 + 2][0:IMAGE_WIDTH-KERNEL_SIZE*3 + 2];
+    wire [7:0] threshold_output[0:IMAGE_HEIGHT-KERNEL_SIZE*3 + 2][0:IMAGE_WIDTH-KERNEL_SIZE*3 + 2];
     reg [FRAC_BITS-1:0] i_kernel [KERNEL_SIZE-1:0][KERNEL_SIZE-1:0];
     reg i_data_valid;
     reg i_kernel_valid;
@@ -39,7 +40,7 @@ module tb_nms();
 
     // Load image data from file into memory
     initial begin
-        $readmemh("mars.hex", image_memory);  // Load image as hex values
+        $readmemh("lena.hex", image_memory);  // Load image as hex values
         reset = 0;
         for(int i = 0;i < IMAGE_HEIGHT; i = i + 1) begin
             for(int j = 0;j < IMAGE_WIDTH; j = j + 1) begin
@@ -53,6 +54,7 @@ module tb_nms();
 
     genvar i,j;
     genvar x,y;
+    genvar a,b;
 
     // Gaussian filtering blocks
     generate
@@ -160,8 +162,22 @@ module tb_nms();
                     .direction(gradient_direction[i][j]),
                     .nms_output(nms_output[i][j])
                 );
+
             end
         end
+    endgenerate
+
+    generate
+        for(a = 0;a < IMAGE_HEIGHT-KERNEL_SIZE*3 + 3;a = a + 1) begin : thresh_row
+            for(b = 0;b < IMAGE_WIDTH-KERNEL_SIZE*3 + 3;b = b + 1) begin : thresh_col
+                threshold #(.HIGH_THRESHOLD(100), .HIGH_VALUE(255), .LOW_VALUE(0))
+                    uut_threshold(
+                        .i_clk(clk),
+                        .input_pixel(nms_output[a][b]),
+                        .output_pixel(threshold_output[a][b])
+                    );
+        end
+    end
     endgenerate
 
 
@@ -202,8 +218,6 @@ module tb_nms();
         end
     endtask
 
-    // Save NMS output to file
-    integer outfile;
 
     initial begin
 
@@ -220,11 +234,15 @@ module tb_nms();
         i_kernel_valid = 0;
     end
 
+    // Save NMS output to file
+    integer outfile;
+    integer threshold_file;
+
 
 initial begin
-    integer outfile;  // File descriptor
     integer clk_counter = 0;  // Clock cycle counter
     outfile = $fopen("../output_files/nms_output.hex", "w");
+    threshold_file = $fopen("../output_files/thresh_output.hex", "w");
     $display("Waiting for processing to complete");
 
     // Wait for 5 clock cycles
@@ -240,10 +258,37 @@ initial begin
             end else begin
                 $fwrite(outfile, "%h ", nms_output[i][j]);  // Space-separated values
             end
+
         end
     end
 
     $fclose(outfile);  // Close the file after writing
+    $display("Processing complete. Output written to file.");
+end
+
+
+initial begin
+    integer clk_counter = 0;  // Clock cycle counter
+    threshold_file = $fopen("../output_files/thresh_output.hex", "w");
+
+    // Wait for 5 clock cycles
+    @(posedge clk);
+    repeat (5) @(posedge clk);
+
+    // Start writing the output
+    for (int i = 0; i < IMAGE_HEIGHT - KERNEL_SIZE*3 + 3; i = i + 1) begin
+        for (int j = 0; j < IMAGE_WIDTH - KERNEL_SIZE*3 + 3; j = j + 1) begin
+            // Write values in matrix form: Add a space between columns, write a newline at the end of each row
+            if (j == IMAGE_WIDTH - KERNEL_SIZE*3 + 2) begin
+                $fwrite(threshold_file, "%h\n", threshold_output[i][j]);  // End of row
+            end else begin
+                $fwrite(threshold_file, "%h ", threshold_output[i][j]);  // Space-separated values
+            end
+
+        end
+    end
+
+    $fclose(threshold_file);  // Close the file after writing
     $display("Processing complete. Output written to file.");
 end
 

@@ -28,7 +28,7 @@ def non_uniform_quantize(value, fine_threshold, fine_step, coarse_step):
 # Parametri per la quantizzazione non uniforme
 fine_threshold = 16  # Range near zero with fine quantization
 fine_step = 1        # Fine quantization step
-coarse_step = 32     # Coarse quantization step
+coarse_step = 64     # Coarse quantization step
 
 # Genera una griglia di valori per X e Y
 max_value = 1024
@@ -59,13 +59,8 @@ print(f"Number of wrong guesses: {non_zero_error_count}")
 print(f"Number of elements: {num_elements}")
 print(f"RELATIVE WRONG GUESSES: {(non_zero_error_count / num_elements) * 100:.2f}%")
 
-#print hte number of lut entries
-fine_threshold_lut_size = fine_threshold**2
-
-coarse_lut_size = ((max_value - fine_threshold)/(coarse_step))**2
-print(f"LUT ENTRIES for the FINE THRESHOLD : {fine_threshold_lut_size}")
-print(f"LUT ENTRIES for the quantized entries : {coarse_lut_size}")
-print(f"TOTAL LUT ENTRIES : {coarse_lut_size + fine_threshold_lut_size}")
+coarse_lut_size = (max_value - fine_threshold)/(coarse_step)
+print(f"TOTAL LUT ENTRIES : {(coarse_lut_size + fine_threshold)**2}")
 
 # Grafico 3D
 fig = plt.figure(figsize=(14, 7))

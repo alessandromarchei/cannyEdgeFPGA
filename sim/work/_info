@@ -11,7 +11,7 @@ cModel Technology
 Z0 d/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/sim
 vconv_block_gaussian
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1737804969
+Z2 !s110 1737816846
 !i10b 1
 !s100 PDb=X1Q;lB_>07UjWJKD@1
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1737804969.000000
+Z6 !s108 1737816846.000000
 !s107 ../src/params.sv|../src/conv_block_gaussian.sv|
 !s90 -reportprogress|300|-work|work|../src/conv_block_gaussian.sv|
 !i113 1
@@ -95,7 +95,7 @@ I3UIIB[c[16nkAdzbkF]DU1
 R4
 S1
 R0
-w1737791845
+w1737813456
 8../src/nms.sv
 F../src/nms.sv
 !i122 6
@@ -189,17 +189,17 @@ vtb_nms
 R1
 R2
 !i10b 1
-!s100 _>iJaLU0PKU;LWklL`IGF1
+!s100 1T;FC_ii8=i:7jWU>JIQj2
 R3
-I>_:9zC5307T2<BB_^jKNW0
+IiE;M6OlBoiiY4:Y8;WcE82
 R4
 S1
 R0
-w1737804962
+w1737816635
 8../tb/tb_nms.sv
 F../tb/tb_nms.sv
-!i122 7
-L0 7 244
+!i122 8
+L0 7 289
 R5
 r1
 !s85 0
@@ -207,6 +207,31 @@ r1
 R6
 !s107 ../src/params.sv|../tb/tb_nms.sv|
 !s90 -reportprogress|300|-work|work|../tb/tb_nms.sv|
+!i113 1
+R7
+R8
+vthreshold
+R1
+R2
+!i10b 1
+!s100 MEn1Y1NoQ:HA<ZH;@3oz82
+R3
+I36<U:[?KK4^:M`=e:bn1h3
+R4
+S1
+R0
+w1737810943
+8../src/threshold.sv
+F../src/threshold.sv
+!i122 7
+L0 3 20
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../src/params.sv|../src/threshold.sv|
+!s90 -reportprogress|300|-work|work|../src/threshold.sv|
 !i113 1
 R7
 R8
