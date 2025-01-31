@@ -131,12 +131,12 @@ module tb_lut_atan();
         for (i = 0; i < IMAGE_HEIGHT - KERNEL_SIZE*2 + 2; i = i + 1) begin : arctan_row
             for (j = 0; j < IMAGE_WIDTH - KERNEL_SIZE*2 + 2; j = j + 1) begin : arctan_col
 
-                lut_atan #(
+                sobel_atan #(
                 ) sobel_dir (
                     .i_clk(clk),
                     .gx(gx[i][j]),
                     .gy(gy[i][j]),
-                    .angle_range(gradient_direction[i][j])
+                    .o_direction(gradient_direction[i][j])
                 );
             end
         end

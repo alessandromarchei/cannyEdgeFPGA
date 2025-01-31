@@ -1,66 +1,129 @@
 `include "params.sv"
 
-`define MEM_DIR "../mems/"
-`define MAX_VALUE 1021
-`define LUT_ATAN_SIZE ((`FINE_THRESHOLD + (`MAX_VALUE - `FINE_THRESHOLD)) ** 2)
-
 module lut_atan (
     input wire i_clk,
-    input signed [10:0] gx,  // input x
-    input signed [10:0] gy,  // input y
-    output reg signed [1:0] atan // output
+    input logic [3:0] x,  // input x
+    input logic [3:0] y,  // input y
+    output reg [1:0] direction // output
 );
 
-    // LUT for the first quadrant (positive gx and gy only)
-    logic [1:0] lut [0:`LUT_ATAN_SIZE-1];
 
-    // LUT initialization (values precomputed offline)
+localparam int MAX_VALUE = 1021;
+localparam int X_SIZE = $clog2(MAX_VALUE);
+
+// LUT for the first quadrant (positive gx and gy only)
+reg [1:0] lut [0:X_SIZE-1][0:X_SIZE-1];
+
+/*
+INSERT HERE THE LUT CONTENT
+*/
     initial begin
-        $readmemh({`MEM_DIR,"lut_atan_fine",`FINE_THRESHOLD,"_coarse",`COARSE_STEP,".mem"}, lut); // Load LUT data from a file
+        lut[0][0] = 2'b00;
+        lut[0][1] = 2'b01;
+        lut[0][2] = 2'b01;
+        lut[0][3] = 2'b01;
+        lut[0][4] = 2'b01;
+        lut[0][5] = 2'b01;
+        lut[0][6] = 2'b01;
+        lut[0][7] = 2'b01;
+        lut[0][8] = 2'b01;
+        lut[0][9] = 2'b01;
+        lut[1][0] = 2'b00;
+        lut[1][1] = 2'b10;
+        lut[1][2] = 2'b01;
+        lut[1][3] = 2'b01;
+        lut[1][4] = 2'b01;
+        lut[1][5] = 2'b01;
+        lut[1][6] = 2'b01;
+        lut[1][7] = 2'b01;
+        lut[1][8] = 2'b01;
+        lut[1][9] = 2'b01;
+        lut[2][0] = 2'b00;
+        lut[2][1] = 2'b00;
+        lut[2][2] = 2'b10;
+        lut[2][3] = 2'b10;
+        lut[2][4] = 2'b01;
+        lut[2][5] = 2'b01;
+        lut[2][6] = 2'b01;
+        lut[2][7] = 2'b01;
+        lut[2][8] = 2'b01;
+        lut[2][9] = 2'b01;
+        lut[3][0] = 2'b00;
+        lut[3][1] = 2'b00;
+        lut[3][2] = 2'b10;
+        lut[3][3] = 2'b10;
+        lut[3][4] = 2'b10;
+        lut[3][5] = 2'b01;
+        lut[3][6] = 2'b01;
+        lut[3][7] = 2'b01;
+        lut[3][8] = 2'b01;
+        lut[3][9] = 2'b01;
+        lut[4][0] = 2'b00;
+        lut[4][1] = 2'b00;
+        lut[4][2] = 2'b00;
+        lut[4][3] = 2'b10;
+        lut[4][4] = 2'b10;
+        lut[4][5] = 2'b10;
+        lut[4][6] = 2'b01;
+        lut[4][7] = 2'b01;
+        lut[4][8] = 2'b01;
+        lut[4][9] = 2'b01;
+        lut[5][0] = 2'b00;
+        lut[5][1] = 2'b00;
+        lut[5][2] = 2'b00;
+        lut[5][3] = 2'b00;
+        lut[5][4] = 2'b10;
+        lut[5][5] = 2'b10;
+        lut[5][6] = 2'b10;
+        lut[5][7] = 2'b01;
+        lut[5][8] = 2'b01;
+        lut[5][9] = 2'b01;
+        lut[6][0] = 2'b00;
+        lut[6][1] = 2'b00;
+        lut[6][2] = 2'b00;
+        lut[6][3] = 2'b00;
+        lut[6][4] = 2'b00;
+        lut[6][5] = 2'b10;
+        lut[6][6] = 2'b10;
+        lut[6][7] = 2'b10;
+        lut[6][8] = 2'b01;
+        lut[6][9] = 2'b01;
+        lut[7][0] = 2'b00;
+        lut[7][1] = 2'b00;
+        lut[7][2] = 2'b00;
+        lut[7][3] = 2'b00;
+        lut[7][4] = 2'b00;
+        lut[7][5] = 2'b00;
+        lut[7][6] = 2'b10;
+        lut[7][7] = 2'b10;
+        lut[7][8] = 2'b10;
+        lut[7][9] = 2'b01;
+        lut[8][0] = 2'b00;
+        lut[8][1] = 2'b00;
+        lut[8][2] = 2'b00;
+        lut[8][3] = 2'b00;
+        lut[8][4] = 2'b00;
+        lut[8][5] = 2'b00;
+        lut[8][6] = 2'b00;
+        lut[8][7] = 2'b10;
+        lut[8][8] = 2'b10;
+        lut[8][9] = 2'b10;
+        lut[9][0] = 2'b00;
+        lut[9][1] = 2'b00;
+        lut[9][2] = 2'b00;
+        lut[9][3] = 2'b00;
+        lut[9][4] = 2'b00;
+        lut[9][5] = 2'b00;
+        lut[9][6] = 2'b00;
+        lut[9][7] = 2'b00;
+        lut[9][8] = 2'b10;
+        lut[9][9] = 2'b10;
     end
 
-//address for the LUT. it is composed by the LSB of the X coordinate, 
-//and on the MSB it contains the Y coordinates, scaled and quantized
-logic [$clog2(LUT_ATAN_SIZE)-1:0] lut_address;
 
+always @(posedge i_clk) begin
+    direction <= lut[x][y];
+end
 
-logic [9:0] abs_gx,abs_gy;
-logic [($clog2(LUT_ATAN_SIZE)/2) - 1:0] x_addr,y_addr;
-
-
-//precompute the absolute values of gx and gy
-assign abs_gx = (gx < 0) ? -gx : gx;
-assign abs_gy = (gy < 0) ? -gy : gy;
-
-    always_comb begin : part_address_computation
-        localparam base_addr = `FINE_THRESHOLD;
-        if(abs_gx < FINE_THRESHOLD) begin
-            x_addr = abs_gx;
-        end
-        else x_addr = base_addr + 
-    end
-
-
-    // Compute the arctangent using LUT and adjust for symmetry
-    always_comb begin
-
-        // Bound inputs to LUT size
-        if (abs_gx >= `LUT_ATAN_SIZE/2 || abs_gy >= `LUT_ATAN_SIZE/2) begin
-            lut_value = 0; // Handle out-of-range values gracefully
-        end else begin
-            lut_value = lut[abs_gx][abs_gy]; // Look up the LUT
-        end
-
-        // Adjust result based on quadrant
-        if (gx >= 0 && gy >= 0) begin
-            atan = lut_value; // First quadrant
-        end else if (gx < 0 && gy >= 0) begin
-            atan = 90 - lut_value; // Second quadrant
-        end else if (gx < 0 && gy < 0) begin
-            atan = -90 + lut_value; // Third quadrant
-        end else begin
-            atan = -lut_value; // Fourth quadrant
-        end
-    end
 
 endmodule

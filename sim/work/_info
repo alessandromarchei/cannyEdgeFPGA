@@ -11,7 +11,7 @@ cModel Technology
 Z0 d/home/alessandro/Politecnico Di Torino Studenti Dropbox/Alessandro Marchei/GITHUB_proj/cannyEdgeFPGA/sim
 vconv_block_gaussian
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1737816846
+Z2 !s110 1738331871
 !i10b 1
 !s100 PDb=X1Q;lB_>07UjWJKD@1
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1737816846.000000
+Z6 !s108 1738331871.000000
 !s107 ../src/params.sv|../src/conv_block_gaussian.sv|
 !s90 -reportprogress|300|-work|work|../src/conv_block_gaussian.sv|
 !i113 1
@@ -47,7 +47,7 @@ R0
 w1737464107
 8../src/conv_block_sobel.sv
 F../src/conv_block_sobel.sv
-!i122 1
+!i122 3
 Z9 L0 3 37
 R5
 r1
@@ -73,18 +73,68 @@ w1736779521
 8../src/lineBuffer.sv
 F../src/lineBuffer.sv
 !i122 0
-L0 1 52
+Z10 L0 1 52
 R5
 r1
 !s85 0
 31
-R6
+!s108 1738331870.000000
 !s107 ../src/lineBuffer.sv|
 !s90 -reportprogress|300|-work|work|../src/lineBuffer.sv|
 !i113 1
 R7
 R8
 nline@buffer
+vlut_atan
+R1
+R2
+!i10b 1
+!s100 `l]N7iVaXafVE1Q6e<IM@3
+R3
+IR7j6LcoiZnehR>5F0^RZP2
+R4
+S1
+R0
+w1738331171
+8../src/lut_atan.sv
+F../src/lut_atan.sv
+!i122 4
+L0 3 127
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../src/params.sv|../src/lut_atan.sv|
+!s90 -reportprogress|300|-work|work|../src/lut_atan.sv|
+!i113 1
+R7
+R8
+vlut_log_quantizer
+R1
+R2
+!i10b 1
+!s100 ;gM0UXTB:jP32=WalT[?22
+R3
+I7>jOmbgFaic1:09XU7mFF0
+R4
+S1
+R0
+w1738328519
+8../src/lut_log_quantizer.sv
+F../src/lut_log_quantizer.sv
+!i122 6
+L0 3 18
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../src/params.sv|../src/lut_log_quantizer.sv|
+!s90 -reportprogress|300|-work|work|../src/lut_log_quantizer.sv|
+!i113 1
+R7
+R8
 vnms
 R1
 R2
@@ -98,7 +148,7 @@ R0
 w1737813456
 8../src/nms.sv
 F../src/nms.sv
-!i122 6
+!i122 8
 L0 10 49
 R5
 r1
@@ -123,7 +173,7 @@ R0
 w1736848236
 8../src/reduction_tree.sv
 F../src/reduction_tree.sv
-!i122 3
+!i122 1
 L0 1 39
 R5
 r1
@@ -135,28 +185,28 @@ R6
 !i113 1
 R7
 R8
-vsobel_arctan
+vsobel_atan
 R1
 R2
 !i10b 1
-!s100 U@aifY<W5MCN_i<MDnT2A0
+!s100 E4O7h^^8J5aH:G8Ro]ZZf3
 R3
-IP624l24`znc2Z>I<JODS90
+IA[3`m@`doQ]<UV?9>bgl@0
 R4
 S1
 R0
-w1737554812
-8../src/sobel_arctan.sv
-F../src/sobel_arctan.sv
-!i122 4
-L0 1 38
+w1738331325
+8../src/sobel_atan.sv
+F../src/sobel_atan.sv
+!i122 7
+R10
 R5
 r1
 !s85 0
 31
 R6
-!s107 ../src/sobel_arctan.sv|
-!s90 -reportprogress|300|-work|work|../src/sobel_arctan.sv|
+!s107 ../src/sobel_atan.sv|
+!s90 -reportprogress|300|-work|work|../src/sobel_atan.sv|
 !i113 1
 R7
 R8
@@ -185,28 +235,28 @@ R6
 !i113 1
 R7
 R8
-vtb_nms
+vtb_lut_atan
 R1
 R2
 !i10b 1
-!s100 1T;FC_ii8=i:7jWU>JIQj2
+!s100 5I03l^DiL?I`EQ8Zgo;kS0
 R3
-IiE;M6OlBoiiY4:Y8;WcE82
+I@F5bkh5>ESS1zo>7AGEQA0
 R4
 S1
 R0
-w1737816635
-8../tb/tb_nms.sv
-F../tb/tb_nms.sv
-!i122 8
-L0 7 289
+w1738330018
+8../tb/tb_lut_atan.sv
+F../tb/tb_lut_atan.sv
+!i122 10
+L0 7 288
 R5
 r1
 !s85 0
 31
 R6
-!s107 ../src/params.sv|../tb/tb_nms.sv|
-!s90 -reportprogress|300|-work|work|../tb/tb_nms.sv|
+!s107 ../src/params.sv|../tb/tb_lut_atan.sv|
+!s90 -reportprogress|300|-work|work|../tb/tb_lut_atan.sv|
 !i113 1
 R7
 R8
@@ -223,7 +273,7 @@ R0
 w1737810943
 8../src/threshold.sv
 F../src/threshold.sv
-!i122 7
+!i122 9
 L0 3 20
 R5
 r1
